@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DREI COFFEESHOP - Kopi Premium & Pengalaman Terbaik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5d4037;
+            --secondary-color: #ffab91;
+            --accent-color: #8d6e63;
+            --light-color: #f9f5f0;
+            --dark-color: #3e2723;
+            --text-color: #4e342e;
+            --text-light: #795548;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 15px auto 30px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #ff8a65;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 138, 101, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #4e342e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(93, 64, 55, 0.3);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(93, 64, 55, 0.9), rgba(93, 64, 55, 0.9)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Menu Section */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .menu-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+            font-family: 'Playfair Display', serif;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .menu-item {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-item-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .menu-item-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .menu-item-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .menu-item-options {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .option-title {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .option-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background-color: #f5f5f5;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .option-btn.active {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            margin-top: 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Online Ordering System */
+        .order-section {
+            background-color: #f5f0eb;
+        }
+
+        .order-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .order-form-container {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 171, 145, 0.2);
+        }
+
+        .order-summary {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .order-summary-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .order-items {
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            padding-top: 15px;
+            border-top: 2px solid var(--secondary-color);
+            margin-top: 15px;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Blog Section */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background-color: #f5f0eb;
+        }
+
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .testimonial-rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .slider-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-btn:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Loyalty Program */
+        .loyalty-container {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .loyalty-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .loyalty-description {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .loyalty-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* Events Calendar */
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .event-date {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .event-day {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .event-month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .event-content {
+            padding: 25px;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .event-details {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Contact & Location */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .contact-email {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .contact-email:hover {
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        /* Social Media Feed */
+        .social-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .social-post {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+
+        .social-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .social-post:hover .social-overlay {
+            opacity: 1;
+        }
+
+        .social-icon {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+
+        .footer-about {
+            max-width: 300px;
+        }
+
+        .footer-links h4, .footer-social h4, .footer-newsletter h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light-color);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #ff8a65;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100%;
+            background-color: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: var(--transition);
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-options {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .quantity-btn {
+            background-color: #f5f5f5;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .quantity-value {
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .cart-total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #ff8a65;
+        }
+
+        /* Cart Icon */
+        .cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .cart-icon:hover {
+            background-color: var(--dark-color);
+            transform: scale(1.05);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff5722;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Modal for gallery */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1002;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--white);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .order-container, .about-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                margin-left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .values-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-container, .blog-container, .events-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .loyalty-container {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+
+        <!-- KIRI: LOGO + NAMA -->
+        <div style="display:flex; align-items:center; gap:8px;">
+            <img src="coffee.png" alt="Logo" style="height:100px; width:auto;">
+            <a href="#" class="logo">DREI<span>COFFEESHOP</span></a>
+        </div>
+
+        <!-- KANAN: MENU -->
+        <ul class="nav-links" style="margin:0;">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#order">Pesan Online</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+
+    </div>
+</header>
+
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Pengalaman Kopi Premium yang Tak Terlupakan</h1>
+            <p>DREI COFFEESHOP menghadirkan biji kopi pilihan dari perkebunan terbaik dengan racikan autentik oleh barista berpengalaman. Nikmati setiap tegukan di suasana yang hangat dan nyaman.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Lihat Menu</a>
+                <a href="#order" class="btn btn-secondary">Pesan Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Menu Andalan Kami</h2>
+            <p class="section-subtitle">Setiap kopi kami dibuat dengan biji pilihan dan teknik penyeduhan yang tepat untuk memberikan pengalaman terbaik bagi Anda</p>
+            
+            <div class="menu-category">
+                <h3 class="category-title">Kopi Signature</h3>
+                <div class="menu-container">
+                    <!-- Product 1 -->
+                    <div class="menu-item">
+                        <img src="https://rencanamu.id/assets/file_uploaded/editor/1551185691-set-fusion.jpg" alt="Espresso" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Espresso</h4>
+                                <div class="menu-item-price">Rp 25.000</div>
+                            </div>
+                            <p class="menu-item-description">Kopi murni yang diseduh dengan tekanan tinggi, menghasilkan minuman pekat dengan crema yang sempurna.</p>
+                            <div class="menu-item-options">
+                                <div class="option-title">Pilihan Ukuran:</div>
+                                <div class="option-buttons">
+                                    <button class="option-btn active" data-type="size" data-value="reguler">Reguler</button>
+                                    <button class="option-btn" data-type="size" data-value="large">Large (+Rp 5.000)</button>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Espresso" data-price="25000" data-image="https://rencanamu.id/assets/file_uploaded/editor/1551185691-set-fusion.jpg">Tambah ke Keranjang</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="menu-item">
+                        <img src="https://rencanamu.id/assets/file_uploaded/editor/1551185749-gettyimage.jpg" alt="Cafe Latte" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Cafe Latte</h4>
+                                <div class="menu-item-price">Rp 35.000</div>
+                            </div>
+                            <p class="menu-item-description">Perpaduan sempurna espresso dan susu steamed dengan lapisan busa susu yang tipis.</p>
+                            <div class="menu-item-options">
+                                <div class="option-title">Pilihan Susu:</div>
+                                <div class="option-buttons">
+                                    <button class="option-btn active" data-type="milk" data-value="fullcream">Full Cream</button>
+                                    <button class="option-btn" data-type="milk" data-value="skim">Skim</button>
+                                    <button class="option-btn" data-type="milk" data-value="almond">Almond (+Rp 7.000)</button>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Cafe Latte" data-price="35000" data-image="https://rencanamu.id/assets/file_uploaded/editor/1551185749-gettyimage.jpg">Tambah ke Keranjang</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="menu-item">
+                        <img src="https://rencanamu.id/assets/file_uploaded/editor/1551185796-homemade-m.jpg" alt="Mocha" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Mocha</h4>
+                                <div class="menu-item-price">Rp 40.000</div>
+                            </div>
+                            <p class="menu-item-description">Kombinasi espresso, cokelat premium, dan susu steamed, disempurnakan dengan whipped cream.</p>
+                            <div class="menu-item-options">
+                                <div class="option-title">Pilihan Cokelat:</div>
+                                <div class="option-buttons">
+                                    <button class="option-btn active" data-type="chocolate" data-value="dark">Dark Chocolate</button>
+                                    <button class="option-btn" data-type="chocolate" data-value="milk">Milk Chocolate</button>
+                                    <button class="option-btn" data-type="chocolate" data-value="white">White Chocolate (+Rp 5.000)</button>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Mocha" data-price="40000" data-image="https://rencanamu.id/assets/file_uploaded/editor/1551185796-homemade-m.jpg">Tambah ke Keranjang</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="menu-item">
+                        <img src="https://www.thespruceeats.com/thmb/T9QWZRgAyCIEdSh92z_XOl9kvkM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/affogato-4776668-hero-08-40d7a68d12ba46f48eaea3c43aba715c.jpg" alt="Affogato" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Affogato</h4>
+                                <div class="menu-item-price">Rp 45.000</div>
+                            </div>
+                            <p class="menu-item-description">Dessert kopi Italia yang elegan, satu scoop es krim vanilla disiram dengan espresso panas.</p>
+                            <div class="menu-item-options">
+                                <div class="option-title">Pilihan Topping:</div>
+                                <div class="option-buttons">
+                                    <button class="option-btn active" data-type="topping" data-value="none">Tanpa Topping</button>
+                                    <button class="option-btn" data-type="topping" data-value="choco">Serutan Cokelat</button>
+                                    <button class="option-btn" data-type="topping" data-value="caramel">Caramel Sauce (+Rp 5.000)</button>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Affogato" data-price="45000" data-image="https://www.thespruceeats.com/thmb/T9QWZRgAyCIEdSh92z_XOl9kvkM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/affogato-4776668-hero-08-40d7a68d12ba46f48eaea3c43aba715c.jpg">Tambah ke Keranjang</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="menu-item">
+                        <img src="https://rencanamu.id/assets/file_uploaded/editor/1551185846-americano-.jpg" alt="Americano" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Americano</h4>
+                                <div class="menu-item-price">Rp 30.000</div>
+                            </div>
+                            <p class="menu-item-description">Espresso yang diencerkan dengan air panas, menghasilkan minuman kopi dengan karakteristik rasa yang unik.</p>
+                            <div class="menu-item-options">
+                                <div class="option-title">Pilihan Kekuatan:</div>
+                                <div class="option-buttons">
+                                    <button class="option-btn active" data-type="strength" data-value="medium">Medium</button>
+                                    <button class="option-btn" data-type="strength" data-value="strong">Strong</button>
+                                    <button class="option-btn" data-type="strength" data-value="extra">Extra Shot (+Rp 8.000)</button>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Americano" data-price="30000" data-image="https://rencanamu.id/assets/file_uploaded/editor/1551185846-americano-.jpg">Tambah ke Keranjang</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="menu-item">
+                        <img src="https://www.sugacoffee.id/wp-content/uploads/2024/04/21.-Cappucino-Pengertian-Proses-dan-Teknik-Peyeduhannya-Suga-Coffee-2.jpg" alt="Cappucino" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Cappucino</h4>
+                                <div class="menu-item-price">Rp 35.000</div>
+                            </div>
+                            <p class="menu-item-description">Perpaduan seimbang espresso, susu steamed, dan busa susu tebal dengan taburan bubuk cokelat.</p>
+                            <div class="menu-item-options">
+                                <div class="option-title">Pilihan Rasa:</div>
+                                <div class="option-buttons">
+                                    <button class="option-btn active" data-type="flavor" data-value="original">Original</button>
+                                    <button class="option-btn" data-type="flavor" data-value="vanilla">Vanilla (+Rp 5.000)</button>
+                                    <button class="option-btn" data-type="flavor" data-value="hazelnut">Hazelnut (+Rp 7.000)</button>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Cappucino" data-price="35000" data-image="https://www.sugacoffee.id/wp-content/uploads/2024/04/21.-Cappucino-Pengertian-Proses-dan-Teknik-Peyeduhannya-Suga-Coffee-2.jpg">Tambah ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Ordering System -->
+    <section class="section order-section" id="order">
+        <div class="container">
+            <h2 class="section-title">Pesan Online</h2>
+            <p class="section-subtitle">Pesan kopi favorit Anda secara online untuk diambil di toko atau dikirim ke lokasi Anda</p>
+            
+            <div class="order-container">
+                <div class="order-form-container">
+                    <h3 class="form-title">Form Pemesanan</h3>
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="customerName" class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="customerName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerPhone" class="form-label">Nomor Telepon *</label>
+                            <input type="tel" id="customerPhone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerEmail" class="form-label">Email *</label>
+                            <input type="email" id="customerEmail" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orderType" class="form-label">Jenis Pesanan *</label>
+                            <select id="orderType" class="form-control" required>
+                                <option value="">Pilih jenis pesanan</option>
+                                <option value="pickup">Ambil di Toko</option>
+                                <option value="delivery">Antar ke Lokasi</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="deliveryAddressGroup" style="display: none;">
+                            <label for="deliveryAddress" class="form-label">Alamat Pengiriman *</label>
+                            <textarea id="deliveryAddress" class="form-control" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pickupTime" class="form-label">Waktu Pengambilan/Pengiriman *</label>
+                            <input type="text" id="pickupTime" class="form-control" placeholder="Pilih tanggal dan waktu" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="specialInstructions" class="form-label">Instruksi Khusus</label>
+                            <textarea id="specialInstructions" class="form-control" rows="3" placeholder="Contoh: kurangi gula, tambah es, dll."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesanan via WhatsApp</button>
+                        <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: #666;">
+                            atau <a href="#" id="sendEmailInstead">Kirim via Email</a>
+                        </p>
+                    </form>
+                </div>
+                
+                <div class="order-summary">
+                    <h3 class="order-summary-title">Ringkasan Pesanan</h3>
+                    <div class="order-items" id="orderSummaryItems">
+                        <!-- Order items will be dynamically added here -->
+                        <p style="text-align: center; color: #999; padding: 20px;">Keranjang Anda kosong</p>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span id="orderSummaryTotal">Rp 0</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">* Pesanan akan diproses setelah pembayaran diterima</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Konfirmasi pesanan akan dikirim ke WhatsApp/Email Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Kami</h2>
+            <p class="section-subtitle">Lihat suasana coffee shop kami dan kreasi kopi yang kami sajikan</p>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Interior Coffee Shop">
+                    <div class="gallery-overlay">
+                        <p>Interior Nyaman</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Barista Sedang Bekerja">
+                    <div class="gallery-overlay">
+                        <p>Barista Profesional</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w-1350&q=80" alt="Makanan Pendamping">
+                    <div class="gallery-overlay">
+                        <p>Makanan Pendamping</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biji Kopi Pilihan">
+                    <div class="gallery-overlay">
+                        <p>Biji Kopi Pilihan</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Latte Art">
+                    <div class="gallery-overlay">
+                        <p>Latte Art Kreatif</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Suasana Coffee Shop">
+                    <div class="gallery-overlay">
+                        <p>Suasana Hangat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang DREI COFFEESHOP</h2>
+            
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="About DREI COFFEESHOP">
+                </div>
+                
+                <div class="about-content">
+                    <h3>Cerita Kami</h3>
+                    <p>DREI COFFEESHOP didirikan pada tahun 2018 oleh tiga sahabat yang memiliki passion yang sama terhadap kopi. Nama "DREI" berasal dari bahasa Jerman yang berarti "tiga", melambangkan tiga pendiri dan tiga nilai utama kami: kualitas, konsistensi, dan pelayanan.</p>
+                    <p>Kami memulai perjalanan kami dengan misi sederhana: menyajikan kopi terbaik dari biji pilihan yang diproses dengan metode terbaik. Setiap biji kopi yang kami gunakan dipilih secara langsung dari petani lokal di berbagai daerah di Indonesia, seperti Aceh, Toraja, dan Bali.</p>
+                    <p>Kini, DREI COFFEESHOP telah berkembang menjadi tempat favorit bagi para pecinta kopi yang mencari tidak hanya secangkir kopi yang nikmat, tetapi juga pengalaman dan suasana yang hangat untuk bersantai, bekerja, atau bertemu dengan teman.</p>
+                    
+                    <div class="values-list">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div>
+                                <h4>Kualitas Terbaik</h4>
+                                <p>Hanya menggunakan biji kopi pilihan dengan proses roasting yang presisi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div>
+                                <h4>Dibuat dengan Cinta</h4>
+                                <p>Setiap cangkir dibuat dengan perhatian dan keahlian oleh barista kami</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4>Ramah Lingkungan</h4>
+                                <p>Menggunakan kemasan ramah lingkungan dan mendukung petani lokal</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4>Komunitas</h4>
+                                <p>Membangun ruang untuk komunitas pecinta kopi berkumpul dan berbagi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section" id="blog">
+        <div class="container">
+            <h2 class="section-title">Blog & Berita</h2>
+            <p class="section-subtitle">Artikel menarik seputar kopi, tips, dan pembaruan dari DREI COFFEESHOP</p>
+            
+            <div class="blog-container">
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 1" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-date">15 Maret 2023</span>
+                        <h3 class="blog-title">5 Cara Membedakan Kopi Arabika dan Robusta</h3>
+                        <p class="blog-excerpt">Pelajari perbedaan mendasar antara dua jenis kopi paling populer di dunia dan bagaimana mengenalinya dari aroma, rasa, hingga penampilan bijinya.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 2" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-date">28 Februari 2023</span>
+                        <h3 class="blog-title">Workshop Latte Art untuk Pemula</h3>
+                        <p class="blog-excerpt">DREI COFFEESHOP menyelenggarakan workshop latte art bulanan. Pelajari teknik dasar membuat heart, rosetta, dan tulip dalam secangkir kopi Anda.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 3" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-date">10 Februari 2023</span>
+                        <h3 class="blog-title">Perjalanan Biji Kopi dari Kebun ke Cangkir</h3>
+                        <p class="blog-excerpt">Ikuti perjalanan panjang biji kopi dari petani di kaki gunung hingga menjadi secangkir kopi nikmat di DREI COFFEESHOP.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Program -->
+    <section class="section">
+        <div class="container">
+            <div class="loyalty-container">
+                <h2 class="loyalty-title">Program Loyalitas DREI</h2>
+                <p class="loyalty-description">Dapatkan keuntungan eksklusif dengan bergabung dalam program loyalitas kami. Kumpulkan poin untuk setiap pembelian dan tukarkan dengan hadiah spesial.</p>
+                
+                <div class="loyalty-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Poin Pembelian</h4>
+                        <p>Dapatkan 1 poin untuk setiap Rp 10.000 pembelian</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h4>Hadiah Eksklusif</h4>
+                        <p>Tukar poin dengan minuman gratis, merchandise, atau diskon spesial</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h4>Kejutan Ulang Tahun</h4>
+                        <p>Dapatkan minuman gratis di hari ulang tahun Anda</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <h4>Akses Event</h4>
+                        <p>Undangan eksklusif untuk workshop dan acara spesial kami</p>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/6285270224335?text=Halo%20DREI%20COFFEESHOP,%20saya%20ingin%20mendaftar%20program%20loyalitas." class="btn btn-primary" style="margin-top: 30px;">Daftar via WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ulasan Pelanggan</h2>
+            <p class="section-subtitle">Apa kata mereka tentang pengalaman di DREI COFFEESHOP</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <!-- Testimonial slides will be added dynamically -->
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevTestimonial"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn" id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section" id="events">
+        <div class="container">
+            <h2 class="section-title">Acara & Kegiatan</h2>
+            <p class="section-subtitle">Ikuti acara spesial dan workshop yang kami selenggarakan secara rutin</p>
+            
+            <div class="events-container">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-day">25</span>
+                        <span class="event-month">Maret</span>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Workshop Brewing Manual</h3>
+                        <p class="event-details"><i class="far fa-clock"></i> 14:00 - 16:00 WIB</p>
+                        <p>Pelajari teknik manual brewing dengan metode V60, Aeropress, dan French Press bersama barista profesional kami.</p>
+                        <a href="https://wa.me/6285270224335?text=Halo%20DREI%20COFFEESHOP,%20saya%20ingin%20mendaftar%20workshop%20brewing%20manual%20pada%2025%20Maret." class="btn btn-secondary" style="margin-top: 15px;">Daftar via WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-day">02</span>
+                        <span class="event-month">April</span>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Live Music Akustik</h3>
+                        <p class="event-details"><i class="far fa-clock"></i> 19:00 - 22:00 WIB</p>
+                        <p>Nikmati malam minggu dengan live music akustik dari musisi lokal sambil menikmati kopi spesial edisi malam.</p>
+                        <a href="https://wa.me/6285270224335?text=Halo%20DREI%20COFFEESHOP,%20saya%20ingin%20reservasi%20untuk%20acara%20live%20music%20akustik%20pada%202%20April." class="btn btn-secondary" style="margin-top: 15px;">Reservasi via WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-day">15</span>
+                        <span class="event-month">April</span>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Coffee Cupping Session</h3>
+                        <p class="event-details"><i class="far fa-clock"></i> 10:00 - 12:00 WIB</p>
+                        <p>Ikuti sesi cupping untuk mencicipi dan mempelajari karakteristik berbagai jenis kopi single origin dari berbagai daerah.</p>
+                        <a href="https://wa.me/6285270224335?text=Halo%20DREI%20COFFEESHOP,%20saya%20ingin%20mendaftar%20coffee%20cupping%20session%20pada%2015%20April." class="btn btn-secondary" style="margin-top: 15px;">Daftar via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Feed -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Ikuti Kami di Instagram</h2>
+            <p class="section-subtitle">@dreicoffeeshop</p>
+            
+            <div class="social-container">
+                <div class="social-post">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Instagram Post">
+                    <div class="social-overlay">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-post">
+                    <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Instagram Post">
+                    <div class="social-overlay">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-post">
+                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Instagram Post">
+                    <div class="social-overlay">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-post">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Instagram Post">
+                    <div class="social-overlay">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-post">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Instagram Post">
+                    <div class="social-overlay">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-post">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Instagram Post">
+                    <div class="social-overlay">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Kontak & Lokasi</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Alamat</h4>
+                            <p>Jl.Jamin Ginting, Padang Bulan, Lorong 9<br>Medan Sumatera Utara, 20153</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telepon & WhatsApp</h4>
+                            <p>(021) 1234-5678<br>
+                               <a href="https://wa.me/6285270224335" class="contact-email" style="color: #25D366; font-weight: bold;">
+                                   <i class="fab fa-whatsapp"></i> +62 852-7022-4335
+                               </a>
+                            </p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">
+                                (Klik untuk chat langsung di WhatsApp)
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>
+                                <a href="mailto:endreianideboras@gmail.com" class="contact-email">
+                                    <i class="fas fa-envelope"></i> endreianideboras@gmail.com
+                                </a>
+                            </p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">
+                                (Klik untuk mengirim email langsung)
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 07:00 - 22:00 WIB<br>Sabtu - Minggu: 08:00 - 23:00 WIB</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Layanan</h4>
+                            <p>Dine-in • Takeaway • Delivery<br>Reservasi • Catering • Private Event</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Kontak Cepat</h4>
+                            <p>
+                                <a href="https://wa.me/6285270224335?text=Halo%20DREI%20COFFEESHOP,%20saya%20ingin%20bertanya%20tentang..." class="btn btn-primary" style="padding: 8px 15px; font-size: 0.9rem; margin-top: 5px; background-color: #25D366;">
+                                    <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                                </a>
+                                <a href="mailto:endreianideboras@gmail.com?subject=Pertanyaan%20untuk%20DREI%20COFFEESHOP&body=Halo%20DREI%20COFFEESHOP,%0A%0ASaya%20ingin%20bertanya%20tentang..." class="btn btn-secondary" style="padding: 8px 15px; font-size: 0.9rem; margin-top: 5px; margin-left: 10px;">
+                                    <i class="fas fa-envelope"></i> Kirim Email
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent-color);"></i>
+                            <p>Peta Lokasi DREI COFFEESHOP</p>
+                            <p style="font-size: 0.9rem; margin-top: 10px;">Jl. Kopi Indah No. 123, Jakarta Selatan</p>
+                            <a href="https://wa.me/6285270224335?text=Halo%20DREI%20COFFEESHOP,%20bisakah%20Anda%20memberikan%20petunjuk%20arah%20ke%20toko%20Anda?" class="btn btn-primary" style="margin-top: 15px; padding: 8px 20px;">
+                                <i class="fab fa-whatsapp"></i> Minta Petunjuk Arah
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">DREI<span>COFFEESHOP</span></a>
+                    <p>Menghadirkan pengalaman kopi terbaik dengan biji pilihan dari petani lokal dan teknik penyeduhan yang presisi oleh barista berpengalaman.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#order">Pesan Online</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#events">Acara</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Franchise</a></li>
+                        <li><a href="#contact">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Berlangganan Newsletter</h4>
+                    <p>Dapatkan informasi terbaru tentang promo, acara, dan artikel menarik seputar kopi langsung ke email Anda.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda" required id="newsletterEmail">
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <p style="font-size: 0.85rem; margin-top: 10px; color: rgba(255, 255, 255, 0.7);">
+                        Newsletter dikirim dari: <strong>endreianideboras@gmail.com</strong>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 DREI COFFEESHOP. Hak Cipta Dilindungi. | 
+                    Email: <a href="mailto:endreianideboras@gmail.com" style="color: var(--secondary-color); text-decoration: none;">
+                        endreianideboras@gmail.com
+                    </a> | 
+                    WhatsApp: <a href="https://wa.me/6285270224335" style="color: #25D366; text-decoration: none;">
+                        +62 852-7022-4335
+                    </a>
+                </p>
+                <p style="margin-top: 5px; font-size: 0.8rem;">Website by DREI Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Keranjang Belanja</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+            <p id="emptyCartMessage" style="text-align: center; color: #999; padding: 20px;">Keranjang belanja Anda kosong</p>
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">Rp 0</span>
+        </div>
+        <button class="checkout-button" id="checkoutButton">Lanjut ke Pembayaran</button>
+        <p style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 15px;">
+            Konfirmasi pesanan akan dikirim ke WhatsApp/Email Anda
+        </p>
+    </div>
+
+    <!-- Cart Icon -->
+    <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <div class="modal-content">
+            <img src="" alt="" class="modal-img" id="modalImage">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Initialize Flatpickr for date/time picker
+        flatpickr("#pickupTime", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            minDate: "today",
+            time_24hr: true,
+            locale: "id"
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .hero-buttons a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Show/hide delivery address based on order type
+        const orderTypeSelect = document.getElementById('orderType');
+        const deliveryAddressGroup = document.getElementById('deliveryAddressGroup');
+        
+        orderTypeSelect.addEventListener('change', function() {
+            if (this.value === 'delivery') {
+                deliveryAddressGroup.style.display = 'block';
+                document.getElementById('deliveryAddress').required = true;
+            } else {
+                deliveryAddressGroup.style.display = 'none';
+                document.getElementById('deliveryAddress').required = false;
+            }
+        });
+
+        // Cart functionality
+        let cart = [];
+        const cartIcon = document.getElementById('cartIcon');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const cartCount = document.getElementById('cartCount');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+        const checkoutButton = document.getElementById('checkoutButton');
+        
+        // Open cart sidebar
+        cartIcon.addEventListener('click', () => {
+            cartSidebar.classList.add('active');
+        });
+        
+        // Close cart sidebar
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+        });
+        
+        // Add to cart functionality with options
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.menu-item');
+                const productName = this.getAttribute('data-name');
+                const basePrice = parseInt(this.getAttribute('data-price'));
+                const productImage = this.getAttribute('data-image');
+                
+                // Get selected options
+                const options = {};
+                let additionalPrice = 0;
+                
+                productCard.querySelectorAll('.option-buttons').forEach(optionGroup => {
+                    const activeOption = optionGroup.querySelector('.option-btn.active');
+                    if (activeOption) {
+                        const optionType = activeOption.getAttribute('data-type');
+                        const optionValue = activeOption.getAttribute('data-value');
+                        options[optionType] = optionValue;
+                        
+                        // Check for additional price
+                        if (activeOption.textContent.includes('+Rp')) {
+                            const priceMatch = activeOption.textContent.match(/\+Rp (\d+)/);
+                            if (priceMatch) {
+                                additionalPrice += parseInt(priceMatch[1].replace('.', ''));
+                            }
+                        }
+                    }
+                });
+                
+                const finalPrice = basePrice + additionalPrice;
+                
+                // Check if product already in cart with same options
+                const existingProductIndex = cart.findIndex(item => 
+                    item.name === productName && 
+                    JSON.stringify(item.options) === JSON.stringify(options)
+                );
+                
+                if (existingProductIndex !== -1) {
+                    cart[existingProductIndex].quantity += 1;
+                } else {
+                    cart.push({
+                        name: productName,
+                        basePrice: basePrice,
+                        finalPrice: finalPrice,
+                        image: productImage,
+                        options: options,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                cartSidebar.classList.add('active');
+                
+                // Show confirmation message
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
+                this.style.backgroundColor = '#4caf50';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.backgroundColor = '';
+                }, 1500);
+            });
+        });
+        
+        // Option button selection
+        document.querySelectorAll('.option-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const optionGroup = this.closest('.option-buttons');
+                optionGroup.querySelectorAll('.option-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Update cart display
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update order summary in order form
+            updateOrderSummary();
+            
+            // Update cart items display
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                checkoutButton.disabled = true;
+                checkoutButton.style.opacity = '0.6';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                checkoutButton.disabled = false;
+                checkoutButton.style.opacity = '1';
+                
+                cart.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    
+                    // Format options text
+                    let optionsText = '';
+                    if (Object.keys(item.options).length > 0) {
+                        optionsText = Object.entries(item.options)
+                            .map(([key, value]) => `${key}: ${value}`)
+                            .join(', ');
+                    }
+                    
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            ${optionsText ? `<div class="cart-item-options">${optionsText}</div>` : ''}
+                            <div class="cart-item-price">Rp ${item.finalPrice.toLocaleString('id-ID')}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
+                                <span class="quantity-value">${item.quantity}</span>
+                                <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-item" data-index="${index}">&times;</button>
+                    `;
+                    cartItems.appendChild(itemElement);
+                });
+                
+                // Add event listeners to quantity buttons
+                document.querySelectorAll('.quantity-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const action = this.getAttribute('data-action');
+                        
+                        if (action === 'increase') {
+                            cart[index].quantity += 1;
+                        } else if (action === 'decrease') {
+                            if (cart[index].quantity > 1) {
+                                cart[index].quantity -= 1;
+                            } else {
+                                cart.splice(index, 1);
+                            }
+                        }
+                        
+                        updateCart();
+                    });
+                });
+                
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        updateCart();
+                    });
+                });
+            }
+            
+            // Update total price
+            const totalPrice = cart.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0);
+            cartTotal.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+        
+        // Update order summary in order form
+        function updateOrderSummary() {
+            const orderSummaryItems = document.getElementById('orderSummaryItems');
+            const orderSummaryTotal = document.getElementById('orderSummaryTotal');
+            
+            orderSummaryItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                orderSummaryItems.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">Keranjang Anda kosong</p>';
+                orderSummaryTotal.textContent = 'Rp 0';
+                return;
+            }
+            
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'order-item';
+                
+                // Format options text
+                let optionsText = '';
+                if (Object.keys(item.options).length > 0) {
+                    optionsText = Object.entries(item.options)
+                        .map(([key, value]) => `${value}`)
+                        .join(', ');
+                    
+                    optionsText = ` (${optionsText})`;
+                }
+                
+                itemElement.innerHTML = `
+                    <div>${item.name}${optionsText} x${item.quantity}</div>
+                    <div>Rp ${(item.finalPrice * item.quantity).toLocaleString('id-ID')}</div>
+                `;
+                orderSummaryItems.appendChild(itemElement);
+            });
+            
+            const totalPrice = cart.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0);
+            orderSummaryTotal.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+        
+        // Checkout button
+        checkoutButton.addEventListener('click', () => {
+            if (cart.length > 0) {
+                // Scroll to order section
+                document.querySelector('#order').scrollIntoView({ behavior: 'smooth' });
+                cartSidebar.classList.remove('active');
+            }
+        });
+        
+        // WhatsApp integration for order form
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (cart.length === 0) {
+                alert('Keranjang Anda masih kosong. Silakan tambahkan produk terlebih dahulu.');
+                return;
+            }
+            
+            const orderType = document.getElementById('orderType').value;
+            if (orderType === 'delivery' && !document.getElementById('deliveryAddress').value.trim()) {
+                alert('Silakan masukkan alamat pengiriman.');
+                return;
+            }
+            
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            const customerEmail = document.getElementById('customerEmail').value;
+            
+            // Calculate total
+            const totalPrice = cart.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0);
+            
+            // Prepare order details for WhatsApp
+            let whatsappMessage = `*PESANAN DREI COFFEESHOP*%0A%0A`;
+            whatsappMessage += `*Nama:* ${customerName}%0A`;
+            whatsappMessage += `*Telepon:* ${customerPhone}%0A`;
+            whatsappMessage += `*Email:* ${customerEmail}%0A`;
+            whatsappMessage += `*Jenis Pesanan:* ${orderType === 'pickup' ? 'Ambil di Toko' : 'Antar ke Lokasi'}%0A`;
+            
+            if (orderType === 'delivery') {
+                whatsappMessage += `*Alamat:* ${document.getElementById('deliveryAddress').value}%0A`;
+            }
+            
+            whatsappMessage += `*Waktu:* ${document.getElementById('pickupTime').value}%0A%0A`;
+            whatsappMessage += `*DETAIL PESANAN:*%0A`;
+            
+            cart.forEach(item => {
+                let optionsText = '';
+                if (Object.keys(item.options).length > 0) {
+                    optionsText = Object.entries(item.options)
+                        .map(([key, value]) => `${value}`)
+                        .join(', ');
+                    optionsText = ` (${optionsText})`;
+                }
+                
+                whatsappMessage += `- ${item.name}${optionsText} x${item.quantity}: Rp ${(item.finalPrice * item.quantity).toLocaleString('id-ID')}%0A`;
+            });
+            
+            whatsappMessage += `%0A*TOTAL: Rp ${totalPrice.toLocaleString('id-ID')}*%0A%0A`;
+            
+            const specialInstructions = document.getElementById('specialInstructions').value;
+            if (specialInstructions) {
+                whatsappMessage += `*Instruksi Khusus:* ${specialInstructions}%0A%0A`;
+            }
+            
+            whatsappMessage += `_Pesanan ini dikirim via website DREI COFFEESHOP_`;
+            
+            // Create WhatsApp link
+            const whatsappNumber = "6285270224335"; // WhatsApp number
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappLink, '_blank');
+            
+            // Show confirmation
+            alert(`Terima kasih ${customerName}! Pesanan Anda senilai Rp ${totalPrice.toLocaleString('id-ID')} telah dikirim ke WhatsApp kami. Silakan lanjutkan konfirmasi di WhatsApp.`);
+            
+            // Reset form and cart
+            setTimeout(() => {
+                this.reset();
+                cart = [];
+                updateCart();
+                deliveryAddressGroup.style.display = 'none';
+            }, 1000);
+        });
+        
+        // Email alternative for order form
+        document.getElementById('sendEmailInstead').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (cart.length === 0) {
+                alert('Keranjang Anda masih kosong. Silakan tambahkan produk terlebih dahulu.');
+                return;
+            }
+            
+            const orderType = document.getElementById('orderType').value;
+            if (orderType === 'delivery' && !document.getElementById('deliveryAddress').value.trim()) {
+                alert('Silakan masukkan alamat pengiriman.');
+                return;
+            }
+            
+            const customerName = document.getElementById('customerName').value;
+            const customerEmail = document.getElementById('customerEmail').value;
+            
+            // Calculate total
+            const totalPrice = cart.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0);
+            
+            // Prepare order details for email
+            let emailSubject = `Pemesanan DREI COFFEESHOP - ${customerName}`;
+            let emailBody = `Detail Pesanan:%0A%0A`;
+            
+            cart.forEach(item => {
+                let optionsText = '';
+                if (Object.keys(item.options).length > 0) {
+                    optionsText = Object.entries(item.options)
+                        .map(([key, value]) => `${value}`)
+                        .join(', ');
+                    optionsText = ` (${optionsText})`;
+                }
+                
+                emailBody += `- ${item.name}${optionsText} x${item.quantity}: Rp ${(item.finalPrice * item.quantity).toLocaleString('id-ID')}%0A`;
+            });
+            
+            emailBody += `%0ATotal: Rp ${totalPrice.toLocaleString('id-ID')}%0A%0A`;
+            emailBody += `Informasi Pemesan:%0ANama: ${customerName}%0AEmail: ${customerEmail}%0ATelepon: ${document.getElementById('customerPhone').value}%0AJenis Pesanan: ${orderType === 'pickup' ? 'Ambil di Toko' : 'Antar ke Lokasi'}%0A`;
+            
+            if (orderType === 'delivery') {
+                emailBody += `Alamat: ${document.getElementById('deliveryAddress').value}%0A`;
+            }
+            
+            emailBody += `Waktu: ${document.getElementById('pickupTime').value}%0A`;
+            
+            const specialInstructions = document.getElementById('specialInstructions').value;
+            if (specialInstructions) {
+                emailBody += `Instruksi Khusus: ${specialInstructions}%0A`;
+            }
+            
+            // Create mailto link
+            const mailtoLink = `mailto:endreianideboras@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert(`Terima kasih ${customerName}! Silakan kirim email untuk mengkonfirmasi pesanan Anda senilai Rp ${totalPrice.toLocaleString('id-ID')}.`);
+        });
+        
+        // Testimonials slider
+        const testimonials = [
+            {
+                text: "Kopi di DREI COFFEESHOP memang berbeda! Espresso mereka memiliki crema yang sempurna dan rasa yang sangat balanced. Tempatnya juga nyaman untuk bekerja atau sekadar bersantai.",
+                author: "Budi Santoso",
+                rating: 5
+            },
+            {
+                text: "Affogato di sini adalah yang terbaik yang pernah saya coba! Perpaduan es krim vanilla premium dengan espresso kuat benar-benar sempurna. Pelayanannya juga sangat ramah.",
+                author: "Sari Dewi",
+                rating: 5
+            },
+            {
+                text: "Sebagai penggemar kopi, saya sangat menghargai konsistensi rasa di DREI. Setiap kali saya datang, cita rasa kopi mereka selalu sama enaknya. Program loyalitasnya juga menguntungkan!",
+                author: "Ahmad Fauzi",
+                rating: 4
+            },
+            {
+                text: "Tempat favorit saya untuk meeting klien. Suasana tenang, WiFi cepat, dan kopinya luar biasa. Mocha dengan white chocolate adalah rekomendasi saya!",
+                author: "Linda Wijaya",
+                rating: 5
+            }
+        ];
+        
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const prevTestimonialBtn = document.getElementById('prevTestimonial');
+        const nextTestimonialBtn = document.getElementById('nextTestimonial');
+        
+        let currentTestimonial = 0;
+        
+        function renderTestimonials() {
+            testimonialTrack.innerHTML = '';
+            
+            testimonials.forEach((testimonial, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'testimonial-slide';
+                
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += i < testimonial.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                }
+                
+                slide.innerHTML = `
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            ${stars}
+                        </div>
+                        <p class="testimonial-text">"${testimonial.text}"</p>
+                        <p class="testimonial-author">- ${testimonial.author}</p>
+                    </div>
+                `;
+                
+                testimonialTrack.appendChild(slide);
+            });
+            
+            updateSliderPosition();
+        }
+        
+        function updateSliderPosition() {
+            testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+        }
+        
+        prevTestimonialBtn.addEventListener('click', () => {
+            currentTestimonial = currentTestimonial > 0 ? currentTestimonial - 1 : testimonials.length - 1;
+            updateSliderPosition();
+        });
+        
+        nextTestimonialBtn.addEventListener('click', () => {
+            currentTestimonial = currentTestimonial < testimonials.length - 1 ? currentTestimonial + 1 : 0;
+            updateSliderPosition();
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = currentTestimonial < testimonials.length - 1 ? currentTestimonial + 1 : 0;
+            updateSliderPosition();
+        }, 5000);
+        
+        // Gallery modal
+        const galleryModal = document.getElementById('galleryModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                modalImage.src = imgSrc;
+                galleryModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                galleryModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Newsletter form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            
+            if (email) {
+                // Create email link for newsletter subscription
+                const mailtoLink = `mailto:endreianideboras@gmail.com?subject=Berlangganan%20Newsletter%20DREI%20COFFEESHOP&body=Halo,%20saya%20ingin%20berlangganan%20newsletter%20DREI%20COFFEESHOP.%0A%0AEmail%20saya:%20${email}%0A%0ATerima%20kasih.`;
+                
+                alert(`Terima kasih! Email ${email} telah berhasil didaftarkan untuk newsletter kami. Klik OK untuk mengirim konfirmasi.`);
+                window.location.href = mailtoLink;
+                this.reset();
+            }
+        });
+        
+        // Initialize
+        renderTestimonials();
+        updateCart();
+        
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 150;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
